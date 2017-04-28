@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<script>
+
+			var vow = ['a','e','i','o','u','y','an','ain','ai','au','ay','ae','é','è','ee','ea','en','eu','ein','in','ia','ou','ô'];
+			var con = ['b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','z','ch','kh','zh'];
+			var syl = [
+"New", "York", "Los", "An", "ge", "les", "Chi", "ca", "go", "Hou", "ston", "Phi", "la", "del", "phia", "Phoe", "nix", "San", "Die", "go", "San", "An", "to", "nio", "Dal", "las", "Det", "roit", "San", "Jo", 
+"se", "In", "dia", "na", "po", "lis", "Jack", "son", "ville", "San", "Fran", "cis", "co", "Col", "um", "bus", "Aus", "tin", "Mem", "phis", "Bal", "ti", "mo", "re", "Char", "lot", "te", "Fort", "Worth", 
+"Bos", "ton", "Mil", "wau", "kee", "El", "Paso", "Wa", "shing", "ton", "Nash", "ville", "Da", "vid", "son", "Se", "at", "tle", "Den", "ver", "Las", "Ve", "gas", "Port", "land", "Ok", "la", "ho", "ma", "City", 
+"Tuc", "son", "Al", "bu", "quer", "que", "At", "lan", "ta", "Long", "Beach", "Kan", "sas", "City", "Fres", "no", "New", "Or", "le", "ans", "Cle", "ve", "land", "Sa", "cra", "men", "to", "Me", "sa", "Vir", "gi", 
+"nia", "Beach", "O", "ma", "ha", "Co", "lo", "ra", "do", "Springs", "Oak", "land", "Mi", "a", "mi", "Tul", "sa", "Min", "ne", "a", "po", "lis", "Ho", "no", "lu", "lu", "Ar", "ling", "ton", "Wi", "chi", "ta", "St.", 
+"Louis", "Ra", "leigh", "San", "ta", "A", "na", "Cin", "cin", "na", "ti", "A", "na", "heim", "Tam", "pa", "To", "le", "do", "Pitts", "burgh", "Au", "ro", "ra", "Ba", "kers", "field", "Riv", "er", "si", "de", "Stock", 
+"ton", "Cor", "pus", "Chri","sti", "Lex", "ing", "ton", "Fay", "ette", "Buf", "fa", "lo", "St.", "Paul", "An", "cho", "rage", "Ne", "wark", "Pla", "no", "Fort", "Way", "ne", "St.", "Pe", "ters", "burg", "Glen", "da", 
+"le", "Lin", "coln", "Nor", "folk", "Jer", "sey", "City", "Greens", "bo", "ro", "Chand", "ler", "Bir", "ming", "ham", "Hen", "der", "son", "Scotts", "da", "le", "North", "Hemp", "stead", "Ma", "di", "son", "Hia", "leah", 
+"Ba", "ton", "Rou", "ge", "Che", "sa", "pea", "ke", "Or", "lan", "do", "Lub", "bock", "Gar", "land", "Ak", "ron", "Ro", "che", "ster", "Chu", "la", "Vis", "ta", "Re", "no", "La", "re", "do", "Dur", "ham", "Mo", "des", "to", 
+"Hun", "ting", "ton", "Mont", "go", "me", "ry", "Boi", "se", "Ar", "ling", "ton", "San", "Ber", "nar", "di", "no", "A", "la", "ba", "ma", "A", "la", "ska", "A", "ri", "zo", "na", "Ar", "kan", "sas", "Ca", "li", "for", "nia", 
+"Co", "lo", "ra", "do", "Con", "nec", "ti", "cut", "De", "la", "wa", "re", "Flo", "ri", "da", "Ge", "or", "gia", "Ha", "wai", "i", "Id", "a", "ho", "Il", "lin", "ois", "In", "dia", "na", "Io", "wa", "Kan", "sas", "Ken", "tu", 
+"cky", "Lou", "is", "ia", "na", "Mai", "ne", "Ma", "ry", "land", "Mas", "sa", "chu", "setts", "Mi", "chi", "gan", "Min", "ne", "so", "ta", "Mis", "sis", "sip", "pi", "Mis", "sou", "ri", "Mon", "ta", "na", "Ne", "bra", "ska", 
+"Ne", "va", "da", "New", "Hamp", "shire", "New", "Jer", "sey", "New", "Me", "xi", "co", "New", "York", "North", "Ca", "ro", "li", "na", "North", "Da", "ko", "ta", "Oh", "io", "Ok", "la", "ho", "ma", "O", "re", "gon", "Penn", 
+"syl", "va", "nia", "Rho", "de", "Island", "South", "Ca", "ro", "li", "na", "South", "Da", "ko", "ta", "Ten", "nes", "see", "Tex", "as", "U", "tah", "Ver", "mont", "Vir", "gi", "nia", "Wa", "shing", "ton", "West", "Vir", "gi", 
+"nia", "Wis", "con", "sin", "Wy", "om", "ing"
+];
+			var toposPrefix = ['Territory of','Land of', 'Kingdom of', 'Lake', 'Mount'];
+			var toposSuffix = ['Ocean', 'Lake', 'Sea', 'Mountain', 'Forest', 'Island', 'Islands', 'Bay'];
+			var cardinality = ['North', 'Northern', 'Septentrional', 'Boreal','East', 'Eastern', 'Oriental', 'South', 'Southern', 'Meridionnal', 'Austral', 'West', 'Western', 'Occidental' ];
+			function getVowel(){
+				return vow[Math.floor(Math.random()*vow.length)];
+			}
+
+			function getConsonant(){
+				return con[Math.floor(Math.random()*con.length)];
+			}
+
+			function getToposSuffix () {
+				return toposSuffix[Math.floor(Math.random()*toposSuffix.length)];
+			}
+			function getToposPrefix () {
+				return toposPrefix[Math.floor(Math.random()*toposPrefix.length)];
+			}
+			function getCardinality () {
+				return cardinality[Math.floor(Math.random()*cardinality.length)];
+			}
+			function getSyllable () {
+
+				return syl[Math.floor(Math.random()*syl.length)];
+			}
+
+			var word ="";
+			var topos = false;
+			if(!Math.floor(Math.random()*3)) {
+				word += getToposPrefix()+' ';
+				topos = true;
+			}
+			if(!Math.floor(Math.random()*3)) {
+				word += getCardinality()+' ';
+			}
+
+			for ( var i = 0; i<2;i++) {
+				word += getSyllable();
+			}
+
+			word += getConsonant()+getVowel()+' ';
+
+			if(Math.floor(Math.random()*5)&&topos == false) {
+				word += getToposSuffix();
+				topos = true;
+			}
+			document.write(word);
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

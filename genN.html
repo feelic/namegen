@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<script src="namef.js"></script>
+		<script src="namem.js"></script>
+		<script src="topogen.js"></script>
+		<script>
+
+			var word =getNameF()+' '+getNameM();;
+			var word =getNameM()+' '+getNameM();;
+
+			document.write(word);
+
+			var word ="";
+			var topos = false;
+			if(!Math.floor(Math.random()*3)) {
+				word += getToposPrefix()+' ';
+				topos = true;
+			}
+			if(!Math.floor(Math.random()*3)) {
+				word += getCardinality()+' ';
+			}
+
+			var name = '';
+			var nameset = false;
+			if(Math.floor(Math.random()*2)) {
+				for ( var i = 0; i<2;i++) {
+					name += getSyllable();
+				}
+				nameset = true;
+				console.log('syllabes')
+			}
+			if(Math.floor(Math.random()*3)||nameset == false) {
+				name += getConsonant()+getVowel();
+				console.log('syllabes random')
+				if(Math.floor(Math.random()*2)||nameset == false) {
+					name += getSyllable();
+					console.log('encore une')
+				}
+			}
+
+			word += name.charAt(0).toUpperCase()+name.substring(1)+' ';
+
+			if(Math.floor(Math.random()*5)&&topos == false) {
+				word += getLandform();
+				topos = true;
+			}
+			document.write(' from '+word);
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>
